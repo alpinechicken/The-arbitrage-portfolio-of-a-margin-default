@@ -134,7 +134,7 @@ Each side is long these call options and short the options of their counterparty
 \section{Common contract structures}
 
 
-\subsection{Futures margined in strike currency}
+\subsection{Futures margined in strike currency} 
 
 Futures are contracts to transact at a specified price in the future. A simple margining scheme for futures requires a fixed dollar variation margin plus/minus changes in contract value.  $\Delta V = V(t)-V(0)$ is the change in contract value between 0 and $t$ and $\delta>0$ is a fixed variation margin. The full contract specification is table \ref{tab:futstrike}.
 
@@ -278,7 +278,7 @@ $M_V=1.2$, $V(0)=0.9$, $m(0) = 0.1$. No margin breach penalty.
 
 \textit{Margin breach without default:}
 
-Lender puts up 0.9 in strike currency for a one year loan. Margin requirement is 1.2 * 0.1 *0.9 = 0.13 in collateral currency. Borrower puts up 0.15.
+Lender puts up 0.9 in strike currency for a one year loan. Margin requirement is 1.2 * 0.1 *0.9 = 0.108 in collateral currency. Borrower puts up 0.15.
 $m(1)$ moves to 0.15. $V(1)$ is still 0.9. New margin requirement is 1.2*0.15*0.9 = 0.162 and new liability is 0.15*0.9=0.135. The contract has breached margin. The lender receives 0.135 in collateral to satisfy the loan and the lender receives the remaining 0.015.
 
 
@@ -293,10 +293,11 @@ $m(1)$ moves to 0.15. $V(1)$ is still 0.9. New margin requirement is 1.2*0.15*0.
 &  & Change in value & $\Delta V$ & 0& 0 &  \\
 \hline
 Long      & Margin    & (strike)     &  &  &  &  \\
-          &           & (collateral) & $M_V m(t)(\Delta V + V(0))$ & 0.13 & 0.162 &\\ 
+          &           & (collateral) & $M_V m(t)(\Delta V + V(0))$ & 0.108 & 0.162 &\\ 
           & Liability & (strike)     &  &  &  & \\ 
           &           & (collateral)& $m(t)(\Delta V + V(0))$& 0.09  & 0.135 &\\
-          & Collateral&                       &    & 0.15 & 0.15 & \\ 
+          & Collateral&        
+          &    & 0.15 & 0.15 & \\ 
 \hline          
 Short     & Margin    & (strike)     & $V(0)$ & 0.9 & 0.9 & \\
           &           & (collateral) & & & &\\
@@ -312,7 +313,7 @@ Short     & Margin    & (strike)     & $V(0)$ & 0.9 & 0.9 & \\
 
 \textit{Margin breach with default:}
 
-Lender puts up 0.9 in strike currency for a one year loan. Margin requirement is 1.2 * 0.1 *0.9 = 0.13 in collateral currency. Borrower puts up 0.15.
+Lender puts up 0.9 in strike currency for a one year loan. Margin requirement is 1.2 * 0.1 *0.9 = 0.108 in collateral currency. Borrower puts up 0.15.
 $m(1)$ moves to 0.2. $V(1)$ is still 0.9. New margin requirement is 1.2*0.2*0.9 = 0.216 and new liability is 0.2*0.9=0.18.  The contract has breached margin. The lender receives the full 0.15 in collateral to satisfy the loan and the lender defaults on the remaining 0.03. The lender converts this back to 0.75 in the strike currency and has an 83.33\% recovery rate on the loan. 
 
 
@@ -327,7 +328,7 @@ $m(1)$ moves to 0.2. $V(1)$ is still 0.9. New margin requirement is 1.2*0.2*0.9 
 &  & Change in value & $\Delta V$ & 0& 0 &  \\
 \hline
 Long      & Margin    & (strike)     &  &  &  &  \\
-          &           & (collateral) & $M_V m(t)(-\Delta V + V(0))$ & 0.13 & 0.216 &\\ 
+          &           & (collateral) & $M_V m(t)(-\Delta V + V(0))$ & 0.108 & 0.216 &\\ 
           & Liability & (strike)     &  &  &  & \\ 
           &           & (collateral)& $m(t)(-\Delta V + V(0))$& 0.09  & 0.18 &\\
           & Collateral&                       &    & 0.15 & 0.15 & \\
@@ -400,9 +401,9 @@ Initial margin requirement is 7.5. Long and short contracts put up 10 in collate
 &  &  &  & 0 & 1 & 2\\
 \hline
 \hline
-&  & States &  $S(t)$ & 100 & 100 & \\
+&  & States &  $S(t)$ & 100 & 104 & \\
 &  & Value  &  $V(t)$  & 100 & 104 &  \\
-&  & Change in value & $\Delta V$ & 0& -4 &  \\
+&  & Change in value & $\Delta V$ & 0& 4 &  \\
 \hline
 Long      & Margin    & (strike)     &  &  &  &  \\
           &           & (collateral) & $M_V m(t)(-\Delta V + \delta)$ & 7.5 & 1.5 &\\ 
@@ -438,7 +439,7 @@ Initial margin requirement is 7.5. Long and short contracts put up 10 in collate
 \hline
 &  & States &  $S(t)$ & 100 & 110 & \\
 &  & Value  &  $V(t)$  & 100 & 110 &  \\
-&  & Change in value & $\Delta V$ & 0& -10 &  \\
+&  & Change in value & $\Delta V$ & 0& 10 &  \\
 \hline
 Long      & Margin    & (strike)     &  &  &  &  \\
           &           & (collateral) & $M_V m(t)(-\Delta V + \delta)$ & 7.5 & -15 &\\ 
@@ -532,7 +533,7 @@ $V(1)$ moves to 5. Long contract required margin is $-1+0.2*(5) +1 = 1$. Short c
 \hline
 &  & States &  $S(t)$ & 14 & 16 & \\
 &  & Value  &  $V(t)$  & 4 & 5 &  \\
-&  & Change in value & $\Delta V$ & 0& -1 &  \\
+&  & Change in value & $\Delta V$ & 0& 1 &  \\
 \hline
 Long      & Margin    & (strike)     & $-\Delta V + B^L(t)$ & 1.8 & 1 &  \\
           &           & (collateral) & & & &\\ 
@@ -594,9 +595,9 @@ A call is a call strike with $K_2=\infty$. Margin for a collateralized call spre
 
 \[ B^L(t) = \min(\delta_1 V(0) + \delta_2, V(0)) \]
 
-\[ B^S(t) = \min(\delta_3 S(t) + \delta_4 (S(t)-K)) \]
+\[ B^S(t) = \max(\delta_3 S(t) \delta_4 (S(t)-K), V(0)) \]
 
-The long call option holder puts up as margin some fraction of the premium plus a fixed payment. The short option puts up a fraction of the underlying and a fraction of payoff if the option were to expire today.  The full contract specification is table \ref{tab:callstrike}
+The long call option holder puts up as margin some fraction of the premium plus a fixed value. The short option puts up a fraction of the underlying and a fraction of payoff if the option were to expire today.  The full contract specification is table \ref{tab:callstrike}
 
 \begin{table}
 \centering
@@ -637,7 +638,7 @@ $S(0)=100$, $K=110$, $T$= 1 year, $\delta_1=1$, $\delta_2=0$, $\delta_3 =0.1$, $
 
 \textit{Margin breach without default:}
 
-Long contract required margin is $10$. Short contract required margin is $10$. Long contract posts 10. Short contract posts 11. $S(1)$ moves to 110. $V(1)$ moves to 15. Long contract required margin is $-5 + 10=5$ Short contract required margin is $5 + 10 = 15$. Short contract breaches margin. Short contract receives 15 and long contract receives $11-5=6$.
+Long contract required margin is $10$. Short contract required margin is $10$. Long contract posts 10. Short contract posts 11. $S(1)$ moves to 110. $V(1)$ moves to 15. Long contract required margin is $-5 + 15=10$ Short contract required margin is $5 + 0.1*110 = 16$. Short contract breaches margin. Long contract receives 15 and short contract receives $11-5=6$.
 
 
 \begin{table}
@@ -648,15 +649,15 @@ Long contract required margin is $10$. Short contract required margin is $10$. L
 \hline
 &  & States &  $S(t)$ & 100 & 110 & \\
 &  & Value  &  $V(t)$  & 10 & 15 &  \\
-&  & Change in value & $\Delta V$ & 0& -5 &  \\
+&  & Change in value & $\Delta V$ & 0& 5 &  \\
 \hline
-Long      & Margin    & (strike)     & $-\Delta V + B^L(t)$& 10 & 5 & \\
+Long      & Margin    & (strike)     & $-\Delta V + B^L(t)$& 10 & 10 & \\
           &           & (collateral) & & & &\\ 
           & Liability & (strike)     & $-\Delta V$ & 0 & -5 & \\ 
           &           & (collateral)& & & &\\
           & Collateral&                       &    & 10 & 10 & \\
 \hline          
-Short     & Margin    & (strike)     & $\Delta V + B^S(t)$ & 10 & 15 & \\
+Short     & Margin    & (strike)     & $\Delta V + B^S(t)$ & 10 & 16 & \\
           &           & (collateral) & & & &\\
           & Liability & (strike)     & $\Delta V$ & 0 & 5 &\\
           &           & (collateral) & & & &\\
@@ -672,7 +673,7 @@ Short     & Margin    & (strike)     & $\Delta V + B^S(t)$ & 10 & 15 & \\
 \textit{Margin breach with default:}
 
 
-Long contract required margin is $10$. Short contract required margin is $10$. Long contract posts 10. Short contract posts 11. $S(1)$ moves to 120. $V(1)$ moves to 25. Long contract required margin is $-15 + 10=-5$. Short contract required margin is $ 15+ 10 = 25$. Short contract breaches margin. Short contract receives 20 and long contract receives $0$, having defaulted 4.
+Long contract required margin is $10$. Short contract required margin is $10$. Long contract posts 10. Short contract posts 11. $S(1)$ moves to 120. $V(1)$ moves to 25. Long contract required margin is $-15 + 25= 10$. Short contract required margin is $ 15+ 0.1*120 = 27$. Short contract breaches margin. Short contract receives 20 and long contract receives $0$, having defaulted 4.
 
 
 \begin{table}
@@ -682,16 +683,16 @@ Long contract required margin is $10$. Short contract required margin is $10$. L
 \hline
 &  & States &  $S(t)$ & 100 & 120 & \\
 &  & Value  &  $V(t)$  & 10 & 25 &  \\
-&  & Change in value & $\Delta V$ & 0& -15 &  \\
+&  & Change in value & $\Delta V$ & 0& 15 &  \\
 \hline
 \hline
-Long      & Margin    & (strike)     & $-\Delta V + B^L(t)$& 10 & -5 & \\
+Long      & Margin    & (strike)     & $-\Delta V + B^L(t)$& 10 & 10 & \\
           &           & (collateral) & & & &\\ 
           & Liability & (strike)     & $-\Delta V$ & 0 & -15 & \\ 
           &           & (collateral)& & & &\\
           & Collateral&                       &    & 10 & 10 & \\
 \hline          
-Short     & Margin    & (strike)     & $\Delta V + B^S(t)$ & 10 & 25 & \\
+Short     & Margin    & (strike)     & $\Delta V + B^S(t)$ & 10 & 27 & \\
           &           & (collateral) & & & &\\
           & Liability & (strike)     & $\Delta V$ & 0 & 15 &\\
           &           & (collateral) & & & &\\
@@ -768,7 +769,7 @@ Short contract breaches margin. Long contract receives 0.5 and short contract re
 \hline
 &  & States &  $S(t)$ &   &   & \\
 &  & Value  &  $V(t)$  & 0.3 & 0.5 &  \\
-&  & Change in value & $\Delta V$ & 0& -0.2 &  \\
+&  & Change in value & $\Delta V$ & 0& 0.2 &  \\
 \hline
 Long      & Margin    & (strike)     & $-\Delta V + B^L(t)$& 0.16 & 0 & \\
           &           & (collateral) & & & &\\ 
@@ -791,7 +792,7 @@ Short     & Margin    & (strike)     & $\Delta V + B^S(t)$ & 0.24 & 0.4 & \\
 
 \textit{Default:}
 
-Long contract required margin is $0.2*0.3 +0.1 = 0.16$.  Short contract required margin is $0.2*0.7 +0.1 = 0.24$. Long contract posts 0.2. Short contract posts 0.3. $V(1)$ moves to 0.7. Long contract required margin is $-0.4+0.2*0.6 + 0.1 = -0.18$. Short contract required margin is $0.4+0.2*0.4 + 0.1 = 0.58$. Short contract breaches margin. Long contract receives 0.5 and short contract receives $0$, having defaulted 0.1.
+Long contract required margin is $0.2*0.3 +0.1 = 0.16$.  Short contract required margin is $0.2*0.7 +0.1 = 0.24$. Long contract posts 0.2. Short contract posts 0.3. $V(1)$ moves to 0.7. Long contract required margin is $-0.4+0.2*0.7 + 0.1 = -0.16$. Short contract required margin is $0.4+0.2*0.3 + 0.1 = 0.56$. Short contract breaches margin. Long contract receives 0.5 and short contract receives $0$, having defaulted 0.1.
 
 \begin{table}
 \begin{tabular}{lll|c|lll}
@@ -800,15 +801,15 @@ Long contract required margin is $0.2*0.3 +0.1 = 0.16$.  Short contract required
 \hline
 &  & States &  $S(t)$ &   &   & \\
 &  & Value  &  $V(t)$  & 0.3 & 0.7 &  \\
-&  & Change in value & $\Delta V$ & 0& -0.4 &  \\
+&  & Change in value & $\Delta V$ & 0& 0.4 &  \\
 \hline
-Long      & Margin    & (strike)     & $-\Delta V + B^L(t)$& 0.16 & -0.18 & \\
+Long      & Margin    & (strike)     & $-\Delta V + B^L(t)$& 0.16 & -0.16 & \\
           &           & (collateral) & & & &\\ 
           & Liability & (strike)     & $-\Delta V$ & 0 & -0.4 & \\ 
           &           & (collateral)& & & &\\
           & Collateral&                       &    & 0.2 & 0.2 & \\
 \hline          
-Short     & Margin    & (strike)     & $\Delta V + B^S(t)$ & 0.24 & 0.58 & \\
+Short     & Margin    & (strike)     & $\Delta V + B^S(t)$ & 0.24 & 0.56 & \\
           &           & (collateral) & & & &\\
           & Liability & (strike)     & $\Delta V$ & 0 & 0.4 &\\
           &           & (collateral) & & & &\\
@@ -854,17 +855,31 @@ Such margin insurance could conceivably re-contracted over short periods of time
 
 \section{Estimated cost of margin defaults}
 
-We 
+\subsection*{Data}
+We use Bitcoin/USD exchange data from Bitfinex with a one minute increment from 1 May 2013 to 23 November 2020. 
 
-SPX
-BTC
-usdjpy
-Some prediction market
+\subsection*{Methodology}
+We simulate defaults on several contracts assuming that the margin is posted at the start of each period and liquidation is only possible on the minute. 
 
+The default value for each minute is the any liability more than the margin over the minute as a fraction of the state value: 
 
+\begin{equation} \label{default_est}
+default(t) = \frac{(f_l^i(t)- m^i(t-1) )^+}{S(t-1)}
+\end{equation}
 
+Figure \ref{fig:FutMarginDefaultCost} has the annualized average cost of defaults for margin collateral between 10\% and 50\% of the underlying value. 
 
-\section*{Appendix}
+The larger default-inducing moves are in 2013 and 2014, we also show results for the 2015-2020 sample. 
+
+\begin{figure}
+    \centering
+    \subfigure[Full sample]{\includegraphics[width=0.7\textwidth]{figs/FutMarginDefaultCost.png}}
+    \subfigure[2015-2020]{\includegraphics[width=0.7\textwidth]{figs/FutMarginDefaultCost_post2015.png}}
+    \caption{BTC/USD margined futures default insurance cost (annualized) 2013-2020 }
+    \label{fig:FutMarginDefaultCost}
+    
+\end{figure}
+
 
 
 
